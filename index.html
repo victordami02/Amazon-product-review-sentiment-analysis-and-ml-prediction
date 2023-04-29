@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>    
+<head>
+    <title>Enter Product Review</title>
+</head>
+<form> action="{{ url_for('index') }}" method="POST">
+    <fieldset>
+        <legend>Enter Review:</legend>
+        <textarea name="text" rows="10" cols="80" required></textarea>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+
+</form>
+<br>
+<div class="result" align="center">
+    {%if result%}
+        {%for variable, value in original_input.items()%}
+            <b>{{variable}}</b> : {{value}}
+        {%endfor%}
+        <br>
+        <br> The review is :
+            <p style="font-size:50px">{{result}}</p>
+    {%endif%}
+</div>
+</html>
